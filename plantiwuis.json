@@ -1,0 +1,14 @@
+{
+  "generated_at": "2026-02-17T12:00:00Z",
+  "weekly_sales": 42,
+  "daily_visits": 2100,
+  "revenue_clp": 5420000,
+  "avg_ticket_clp": 129000,
+  "stock_value_clp": 1950000,
+  "active_stalls": 6,
+  "promotions": [
+    "Combo Primavera: 3 plantas + maceta",
+    "Descuento 15% en helechos para socios",
+    "Lanzamiento nocturno: horario extendido"
+  ]
+}

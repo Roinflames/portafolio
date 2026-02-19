@@ -1,0 +1,76 @@
+import { readFile, writeFile } from 'node:fs/promises';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const projectsRoot = path.resolve(__dirname, '..');
+
+const repos = [
+  'boxmagic-saas',
+  'cabanas-mvp',
+  'pjud-webscrapping',
+  'contavirtual',
+  'inventario-web-barcode',
+  'fec',
+  'dieto',
+  'asistenciadeudores-cl',
+  'tempo-generador-pdf',
+  'agentcockpit',
+  'deploy-notifier',
+  'pokemon-web',
+  'jorellana',
+  'passbolt-repo',
+  'context-first-arch'
+];
+
+async function loadMetrics(repo) {
+  const metricsPath = path.join(projectsRoot, repo, 'metrics.json');
+  const raw = await readFile(metricsPath, 'utf8');
+  const parsed = JSON.parse(raw);
+  return { ...parsed, repo_path: repo };
+}
+
+function summarize(items) {
+  const knownProgress = items
+    .map((item) => item.progress_percent)
+    .filter((value) => typeof value === 'number');
+
+  const byPriority = items.reduce((acc, item) => {
+    acc[item.priority] = (acc[item.priority] ?? 0) + 1;
+    return acc;
+  }, {});
+
+  const byStatus = items.reduce((acc, item) => {
+    acc[item.status] = (acc[item.status] ?? 0) + 1;
+    return acc;
+  }, {});
+
+  const avg = knownProgress.length
+    ? Number((knownProgress.reduce((a, b) => a + b, 0) / knownProgress.length).toFixed(2))
+    : null;
+
+  return {
+    total_projects: items.length,
+    projects_with_progress: knownProgress.length,
+    projects_without_progress: items.length - knownProgress.length,
+    average_progress_known_only: avg,
+    by_priority: byPriority,
+    by_status: byStatus
+  };
+}
+
+const items = await Promise.all(repos.map(loadMetrics));
+items.sort((a, b) => Number(a.project_id) - Number(b.project_id));
+
+const payload = {
+  generated_at: new Date().toISOString(),
+  schema_version: '1.0.0',
+  summary: summarize(items),
+  projects: items
+};
+
+const outputPath = path.join(__dirname, 'portfolio-metrics.json');
+await writeFile(outputPath, JSON.stringify(payload, null, 2) + '\n', 'utf8');
+
+console.log(`Generated ${outputPath} with ${items.length} projects.`);

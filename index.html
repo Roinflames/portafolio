@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Community Portfolio Hub</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">portafolio</p>
+          <h1>Operación Integral</h1>
+          <p id="generatedAt" class="muted">Cargando datos...</p>
+        </div>
+        <div class="context-toggle" id="contextToggle">
+          <button class="context-btn is-active" data-context="community">Comunidad Virtual</button>
+          <button class="context-btn" data-context="plantiwuis">Plantiwuis</button>
+        </div>
+        <nav class="tabs" id="tabs">
+          <button class="tab is-active" data-tab="overview">Resumen</button>
+          <button class="tab" data-tab="delivery">Delivery</button>
+          <button class="tab" data-tab="commercial">Comercial</button>
+          <button class="tab" data-tab="ai-subscriptions">IA Suscripción</button>
+          <button class="tab" data-tab="pitch">Pitch</button>
+          <button class="tab" data-tab="community">Comunidad</button>
+          <button class="tab" data-tab="notes">Notas</button>
+        </nav>
+      </header>
+
+      <section class="kpis" id="globalKpis"></section>
+      <section class="sticky-legend" id="sectionLegend">
+        <span id="sectionLegendText">Comercial · KPIs y periodos</span>
+        <span class="badge" id="contextBadge">Comunidad virtual</span>
+      </section>
+      <section class="detail-card" id="kpiDetailPanel"><strong>Haz clic en una tarjeta para ver detalles.</strong><p id="kpiDetailText"></p></section>
+      <section class="context-detail" id="contextDetail"></section>
+
+      <section class="panel tab-panel is-active" data-panel="overview">
+        <div class="panel-head">
+          <h2>Radar Ejecutivo</h2>
+        </div>
+        <div class="grid-2" id="overviewCards"></div>
+      </section>
+
+      <section class="panel tab-panel" data-panel="delivery">
+        <div class="panel-head split">
+          <h2>Portafolio de Proyectos</h2>
+          <label>
+            Prioridad
+            <select id="priorityFilter">
+              <option value="ALL">Todas</option>
+              <option value="P1">P1</option>
+              <option value="P2">P2</option>
+              <option value="P3">P3</option>
+            </select>
+          </label>
+        </div>
+        <article class="delivery-console">
+          <div class="panel-head split">
+            <h3>Vista tipo Render · accesos rápidos</h3>
+            <span class="muted">Deploy + GitHub por proyecto</span>
+          </div>
+          <div class="table-wrap">
+            <table class="console-table">
+              <thead>
+                <tr>
+                  <th>Servicio</th>
+                  <th>Estado</th>
+                  <th>Entorno</th>
+                  <th>Prioridad</th>
+                  <th>Actualizado</th>
+                  <th>Links</th>
+                </tr>
+              </thead>
+              <tbody id="deliveryConsoleRows"></tbody>
+            </table>
+          </div>
+        </article>
+        <div class="editor-toolbar">
+          <button class="btn" id="deliveryNewBtn" type="button">Nueva métrica</button>
+          <button class="btn btn-danger" id="deliveryResetBtn" type="button">Partir de cero</button>
+          <button class="btn btn-ghost" id="deliveryRestoreBtn" type="button">Restaurar demo</button>
+          <button class="btn btn-ghost" id="deliveryExportBtn" type="button">Exportar JSON</button>
+          <button class="btn btn-ghost" id="deliveryImportBtn" type="button">Importar JSON</button>
+          <input id="deliveryImportInput" type="file" accept="application/json" hidden />
+        </div>
+        <form id="deliveryForm" class="form-grid">
+          <input type="number" id="deliveryId" placeholder="ID" min="1" required />
+          <input type="text" id="deliverySlug" placeholder="Proyecto (slug)" required />
+          <input type="text" id="deliveryGroup" placeholder="Grupo" required />
+          <select id="deliveryPriority" required>
+            <option value="P1">P1</option>
+            <option value="P2">P2</option>
+            <option value="P3">P3</option>
+          </select>
+          <input type="number" id="deliveryProgress" placeholder="Avance (%)" min="0" max="100" />
+          <input type="text" id="deliveryStatus" placeholder="Estado" />
+          <input type="text" id="deliveryVersion" placeholder="Versión" />
+          <input type="text" id="deliveryBlocker" placeholder="Bloqueador" />
+          <input type="url" id="deliveryFrontendUrl" placeholder="Front URL (https://...)" />
+          <input type="url" id="deliveryBackendUrl" placeholder="Back URL (https://...)" />
+          <input type="url" id="deliveryDatabaseUrl" placeholder="DB URL (https://...)" />
+          <input type="url" id="deliveryGithubUrl" placeholder="GitHub URL (https://github.com/...)" />
+          <div class="form-actions">
+            <button class="btn" id="deliverySaveBtn" type="submit">Guardar</button>
+            <button class="btn btn-ghost" id="deliveryCancelBtn" type="button">Cancelar edición</button>
+          </div>
+        </form>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+            <th>ID</th>
+            <th>Proyecto</th>
+            <th>Grupo</th>
+            <th>Prioridad</th>
+            <th>Avance</th>
+            <th>Estado</th>
+            <th>Versión</th>
+            <th>Bloqueador</th>
+            <th>Link</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+            <tbody id="deliveryRows"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="panel tab-panel" data-panel="commercial">
+        <div class="panel-head split">
+          <h2>Métricas de Prospección y Ventas</h2>
+        </div>
+
+        <div class="editor-toolbar">
+          <div class="toolbar-main">
+            <button class="btn" id="salesNewBtn" type="button">Nueva oportunidad</button>
+            <button class="btn btn-secondary" id="salesResetBtn" type="button">Partir de cero</button>
+            <button class="btn btn-ghost" id="salesRestoreBtn" type="button">Restaurar demo</button>
+            <div class="more-actions">
+              <button class="btn btn-ghost" id="salesMoreBtn" type="button">Más acciones ▾</button>
+              <div class="more-menu" id="salesMoreMenu">
+                <button class="btn btn-ghost" id="salesExportBtn" type="button">Exportar JSON</button>
+                <button class="btn btn-ghost" id="salesImportBtn" type="button">Importar JSON</button>
+              </div>
+            </div>
+            <input id="salesImportInput" type="file" accept="application/json" hidden />
+          </div>
+          <label class="toolbar-label">
+            Filtro etapa
+            <select id="stageFilter">
+              <option value="ALL">Todas</option>
+              <option value="lead">Lead</option>
+              <option value="qualified">Qualified</option>
+              <option value="proposal">Proposal</option>
+              <option value="negotiation">Negotiation</option>
+              <option value="won">Won</option>
+              <option value="lost">Lost</option>
+            </select>
+          </label>
+          <label class="toolbar-label">
+            Orden
+            <select id="salesSortField">
+              <option value="account">Cuenta</option>
+              <option value="product">Producto</option>
+              <option value="amount_clp">Monto</option>
+              <option value="probability_percent">Probabilidad</option>
+              <option value="close_date">Cierre</option>
+            </select>
+            <button class="btn btn-small" id="salesSortDirectionBtn" type="button">Ascendente</button>
+          </label>
+        </div>
+
+        <div class="pagination" id="salesPagination">
+          <label>
+            Tamaño
+            <select id="salesPageSize">
+              <option value="5">5</option>
+              <option value="10">10</option>
+              <option value="15">15</option>
+            </select>
+          </label>
+          <button class="btn btn-small btn-ghost" id="salesPrevPage" type="button">Anterior</button>
+          <span id="salesPageInfo" class="muted">Página 1</span>
+          <button class="btn btn-small btn-ghost" id="salesNextPage" type="button">Siguiente</button>
+          <button class="btn btn-small btn-ghost" id="salesPeriodToggle" type="button">Ocultar periodos</button>
+        </div>
+
+        <form id="salesForm" class="form-grid">
+          <input type="text" id="saleAccount" placeholder="Cuenta" required />
+          <input type="text" id="saleProduct" placeholder="Producto" required />
+          <select id="saleStage" required>
+            <option value="lead">Lead</option>
+            <option value="qualified">Qualified</option>
+            <option value="proposal">Proposal</option>
+            <option value="negotiation">Negotiation</option>
+            <option value="won">Won</option>
+            <option value="lost">Lost</option>
+          </select>
+          <input type="number" id="saleAmount" placeholder="Monto CLP" min="0" required />
+          <input type="number" id="saleProbability" placeholder="Probabilidad %" min="0" max="100" required />
+          <input type="date" id="saleCloseDate" required />
+          <input type="text" id="saleOwner" placeholder="Owner" required />
+          <div class="form-actions">
+            <button class="btn" id="salesSaveBtn" type="submit">Guardar</button>
+            <button class="btn btn-ghost" id="salesCancelEditBtn" type="button">Cancelar edición</button>
+          </div>
+        </form>
+
+        <div class="kpis" id="salesKpis"></div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Cuenta</th>
+                <th>Producto</th>
+                <th>Etapa</th>
+                <th>Monto (CLP)</th>
+                <th>Probabilidad</th>
+                <th>Cierre estimado</th>
+                <th>Owner</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+          <tbody id="salesRows"></tbody>
+        </table>
+      </div>
+      <article class="panel secondary-panel" id="salesPeriodPanel">
+        <div class="panel-head split">
+          <h3>Ventas por periodo / subperiodo</h3>
+          <label>
+            Periodo
+            <select id="salesPeriodSelect"></select>
+          </label>
+        </div>
+        <div class="kpis" id="periodKpis"></div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Subperiodo</th>
+                <th>Revenue (CLP)</th>
+                <th>Transacciones</th>
+                <th>Conversión</th>
+              </tr>
+            </thead>
+            <tbody id="periodRows"></tbody>
+          </table>
+        </div>
+      </article>
+</section>
+
+      <section class="panel tab-panel" data-panel="ai-subscriptions">
+        <div class="panel-head split">
+          <h2>Control de Uso IA por Suscripción</h2>
+          <label>
+            Estado
+            <select id="aiStatusFilter">
+              <option value="ALL">Todos</option>
+              <option value="active">active</option>
+              <option value="past_due">past_due</option>
+              <option value="canceled">canceled</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="editor-toolbar">
+          <button class="btn" id="aiNewBtn" type="button">Nueva suscripción</button>
+          <button class="btn btn-danger" id="aiResetBtn" type="button">Partir de cero</button>
+          <button class="btn btn-ghost" id="aiRestoreBtn" type="button">Restaurar demo</button>
+          <button class="btn btn-ghost" id="aiExportBtn" type="button">Exportar JSON</button>
+          <button class="btn btn-ghost" id="aiImportBtn" type="button">Importar JSON</button>
+          <input id="aiImportInput" type="file" accept="application/json" hidden />
+        </div>
+
+        <form id="aiForm" class="form-grid">
+          <input type="text" id="aiCustomer" placeholder="Cliente" required />
+          <input type="text" id="aiPlan" placeholder="Plan" required />
+          <select id="aiBillingCycle" required>
+            <option value="monthly">monthly</option>
+            <option value="yearly">yearly</option>
+          </select>
+          <input type="number" id="aiPrice" placeholder="Precio CLP" min="0" required />
+          <input type="number" id="aiQuotaTokens" placeholder="Cupo tokens" min="0" required />
+          <input type="number" id="aiUsedTokens" placeholder="Tokens usados" min="0" required />
+          <input type="number" id="aiQuotaRequests" placeholder="Cupo requests" min="0" required />
+          <input type="number" id="aiUsedRequests" placeholder="Requests usados" min="0" required />
+          <input type="date" id="aiRenewDate" required />
+          <select id="aiStatus" required>
+            <option value="active">active</option>
+            <option value="past_due">past_due</option>
+            <option value="canceled">canceled</option>
+          </select>
+          <div class="form-actions">
+            <button class="btn" id="aiSaveBtn" type="submit">Guardar</button>
+            <button class="btn btn-ghost" id="aiCancelEditBtn" type="button">Cancelar edición</button>
+          </div>
+        </form>
+
+        <div class="kpis" id="aiKpis"></div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Cliente</th>
+                <th>Plan</th>
+                <th>Ciclo</th>
+                <th>Estado</th>
+                <th>Precio (CLP)</th>
+                <th>Tokens</th>
+                <th>Requests</th>
+                <th>Uso</th>
+                <th>Renueva</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="aiRows"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="panel tab-panel" data-panel="pitch">
+        <div class="panel-head">
+          <h2>Pitch para clientes e inversionistas</h2>
+        </div>
+
+        <div class="founders-section">
+          <p class="eyebrow founders-eyebrow">Equipo fundador</p>
+          <div class="founders-grid">
+            <article class="founder-card">
+              <div class="founder-avatar">RR</div>
+              <div class="founder-body">
+                <h3 class="founder-name">Rodrigo Andrés Reyes Silva</h3>
+                <span class="founder-role">Chief Revenue Officer · Co-fundador</span>
+                <p class="founder-bio">Co-fundador de Comunidad Virtual junto a Diego Martínez. Lidera tanto el área de negocio como la tecnológica, integrando visión comercial y ejecución técnica en una sola figura.</p>
+                <div class="founder-links">
+                  <span class="founder-link-placeholder">Foto · pendiente</span>
+                  <span class="founder-link-placeholder">LinkedIn · pendiente</span>
+                  <span class="founder-link-placeholder">Skills · pendiente</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="kpis pitch-kpis" id="pitchKpis"></div>
+        <form id="pitchForm" class="form-grid pitch-form">
+          <input type="text" id="pitchHeadline" placeholder="Titular llamativo" required />
+          <textarea id="pitchPoints" rows="4" placeholder="Puntos clave separados por línea"></textarea>
+          <div class="form-actions pitch-actions">
+            <button class="btn" id="pitchSaveBtn" type="submit">Guardar narrativa</button>
+            <button class="btn btn-ghost" id="pitchResetBtn" type="button">Restaurar demo</button>
+          </div>
+        </form>
+        <article class="pitch-preview">
+          <h3 id="pitchPreviewHeadline"></h3>
+          <ul id="pitchPreviewPoints"></ul>
+        </article>
+      </section>
+
+      <section class="panel tab-panel" data-panel="community">
+        <div class="panel-head">
+          <h2>Operación de Comunidad</h2>
+        </div>
+        <div class="grid-3" id="communitySummary"></div>
+        <div class="grid-2">
+          <article class="subpanel">
+            <h3>Eventos próximos</h3>
+            <ul id="eventList" class="list"></ul>
+          </article>
+          <article class="subpanel">
+            <h3>Incidentes y moderación</h3>
+            <ul id="incidentList" class="list"></ul>
+          </article>
+        </div>
+      </section>
+      <section class="panel tab-panel" data-panel="notes">
+        <div class="panel-head split">
+          <h2>Notas unificadas</h2>
+          <div class="notes-filters">
+            <label>
+              Proyecto
+              <select id="notesProjectFilter">
+                <option value="ALL">Todos</option>
+              </select>
+            </label>
+            <label>
+              Estado
+              <select id="notesStatusFilter">
+                <option value="ALL">Todos</option>
+                <option value="idea">Idea</option>
+                <option value="pending">Pending</option>
+                <option value="action">Action</option>
+              </select>
+            </label>
+          </div>
+        </div>
+        <form id="notesForm" class="notes-form">
+          <input type="text" id="notesProject" placeholder="Proyecto" required />
+          <input type="text" id="notesTitle" placeholder="Título" required />
+          <textarea id="notesDescription" rows="3" placeholder="Descripción"></textarea>
+          <select id="notesStatus">
+            <option value="idea">Idea</option>
+            <option value="pending">Pending</option>
+            <option value="action">Action</option>
+          </select>
+          <div class="form-actions">
+            <button class="btn" id="notesSaveBtn" type="submit">Agregar nota</button>
+            <button class="btn btn-ghost" id="notesClearBtn" type="button">Limpiar</button>
+          </div>
+        </form>
+        <div class="notes-grid" id="notesGrid"></div>
+      </section>
+    </main>
+    <div id="persistNotice" class="persist-notice" role="status" aria-live="polite" hidden>
+      <article class="persist-notice-card">
+        <strong id="persistNoticeTitle">Guardado</strong>
+        <p id="persistNoticeMessage">Cambio persistido.</p>
+      </article>
+    </div>
+
+    <script>
+      window.__PORTFOLIO_CONFIG__ = {
+        remoteServiceBase: window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+          ? 'http://127.0.0.1:3101'
+          : 'https://portafolio-2dy0.onrender.com'
+      };
+    </script>
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>

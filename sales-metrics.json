@@ -1,0 +1,71 @@
+{
+  "generated_at": "2026-02-16T14:15:00Z",
+  "currency": "CLP",
+  "summary": {
+    "period": "2026-Q1",
+    "new_leads": 38,
+    "qualified_leads": 21,
+    "open_opportunities": 14,
+    "won_deals": 5,
+    "lost_deals": 2,
+    "pipeline_amount_clp": 19600000,
+    "won_amount_clp": 7450000,
+    "conversion_rate_percent": 23.81
+  },
+  "opportunities": [
+    {
+      "account": "Centro Koru",
+      "product": "boxmagic-saas",
+      "stage": "proposal",
+      "amount_clp": 2800000,
+      "probability_percent": 55,
+      "close_date": "2026-03-03",
+      "owner": "rreyes"
+    },
+    {
+      "account": "Club Veta Sur",
+      "product": "cabanas-mvp",
+      "stage": "negotiation",
+      "amount_clp": 1950000,
+      "probability_percent": 70,
+      "close_date": "2026-02-27",
+      "owner": "rreyes"
+    },
+    {
+      "account": "Jurídica Mena",
+      "product": "pjud-webscrapping",
+      "stage": "qualified",
+      "amount_clp": 1650000,
+      "probability_percent": 45,
+      "close_date": "2026-03-10",
+      "owner": "jp"
+    },
+    {
+      "account": "Distribuidora Nexo",
+      "product": "inventario-web-barcode",
+      "stage": "lead",
+      "amount_clp": 920000,
+      "probability_percent": 25,
+      "close_date": "2026-03-22",
+      "owner": "diego"
+    },
+    {
+      "account": "Estudio Briceño",
+      "product": "contavirtual",
+      "stage": "won",
+      "amount_clp": 1100000,
+      "probability_percent": 100,
+      "close_date": "2026-02-14",
+      "owner": "rreyes"
+    },
+    {
+      "account": "Municipalidad Norte",
+      "product": "tempo-generador-pdf",
+      "stage": "lost",
+      "amount_clp": 1340000,
+      "probability_percent": 0,
+      "close_date": "2026-02-11",
+      "owner": "rreyes"
+    }
+  ]
+}

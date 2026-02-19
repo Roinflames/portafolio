@@ -1,0 +1,54 @@
+{
+  "generated_at": "2026-02-16T14:15:00Z",
+  "community": {
+    "active_members": 428,
+    "new_members_30d": 67,
+    "churn_percent_30d": 4.2,
+    "engagement_percent_7d": 61,
+    "nps": 48,
+    "support_sla_breaches": 3
+  },
+  "events": [
+    {
+      "name": "Onboarding Comunidad SaaS",
+      "date": "2026-02-20",
+      "channel": "Zoom",
+      "capacity": 120,
+      "registered": 73
+    },
+    {
+      "name": "AMA Producto y Roadmap",
+      "date": "2026-02-22",
+      "channel": "Discord",
+      "capacity": 200,
+      "registered": 141
+    },
+    {
+      "name": "Clínica de Implementación",
+      "date": "2026-02-28",
+      "channel": "Meet",
+      "capacity": 80,
+      "registered": 36
+    }
+  ],
+  "incidents": [
+    {
+      "title": "Ticket sin respuesta > 24h",
+      "severity": "high",
+      "status": "open",
+      "owner": "soporte-1"
+    },
+    {
+      "title": "Reporte de spam en canal general",
+      "severity": "medium",
+      "status": "in_review",
+      "owner": "mod-2"
+    },
+    {
+      "title": "Solicitud de mejoras portal comunidad",
+      "severity": "low",
+      "status": "backlog",
+      "owner": "producto"
+    }
+  ]
+}

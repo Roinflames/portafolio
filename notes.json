@@ -1,0 +1,50 @@
+{
+  "generated_at": "2026-02-16T08:30:00Z",
+  "notes": [
+    {
+      "note_id": 1,
+      "project": "Comunidad virtual",
+      "title": "Checklist de bienvenida",
+      "description": "Actualizar la guía de onboarding con los nuevos roles de mentor y embajador para que el equipo sepa quién activa qué canales.",
+      "status": "idea",
+      "context": "community",
+      "created_at": "2026-02-12T09:00:00Z"
+    },
+    {
+      "note_id": 2,
+      "project": "Plantiwuis",
+      "title": "Seguimiento de stock feria",
+      "description": "Hacer un reporte diario que incluya stock, ventas y devoluciones para estimar la reposición durante la semana.",
+      "status": "pending",
+      "context": "delivery",
+      "created_at": "2026-02-13T11:45:00Z"
+    },
+    {
+      "note_id": 3,
+      "project": "Operación Comercial",
+      "title": "Priorizar leads con IA",
+      "description": "Mapear cuentas que usan suscripciones IA y emparejarlas con oportunidades en estado qualified para acelerar cierres.",
+      "status": "action",
+      "context": "commercial",
+      "created_at": "2026-02-14T14:20:00Z"
+    },
+    {
+      "note_id": 4,
+      "project": "Delivery Studio",
+      "title": "Alocar responsables nuevos",
+      "description": "Asignar mentores temporales para los proyectos marcados como P3 y limpiar blockers antes de la próxima demo.",
+      "status": "pending",
+      "context": "delivery",
+      "created_at": "2026-02-15T08:15:00Z"
+    },
+    {
+      "note_id": 5,
+      "project": "Comunidad virtual",
+      "title": "Comunicación eventos",
+      "description": "Diseñar un formato de resumen semanal que combine eventos, indicadores de engagement y necesidades de moderación.",
+      "status": "idea",
+      "context": "community",
+      "created_at": "2026-02-15T16:05:00Z"
+    }
+  ]
+}

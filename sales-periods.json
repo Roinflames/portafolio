@@ -1,0 +1,40 @@
+{
+  "generated_at": "2026-02-17T14:00:00Z",
+  "periods": [
+    {
+      "name": "2026-Q1",
+      "type": "quarter",
+      "total_revenue_clp": 5800000,
+      "total_transactions": 132,
+      "subperiods": [
+        {"name": "Ene", "revenue_clp": 1850000, "transactions": 42, "conversion_percent": 11.4},
+        {"name": "Feb", "revenue_clp": 2100000, "transactions": 46, "conversion_percent": 12.7},
+        {"name": "Mar", "revenue_clp": 1850000, "transactions": 44, "conversion_percent": 13.1}
+      ]
+    },
+    {
+      "name": "2026-Jan",
+      "type": "month",
+      "total_revenue_clp": 1850000,
+      "total_transactions": 42,
+      "subperiods": [
+        {"name": "Semana 1", "revenue_clp": 420000, "transactions": 10, "conversion_percent": 9.8},
+        {"name": "Semana 2", "revenue_clp": 480000, "transactions": 11, "conversion_percent": 10.5},
+        {"name": "Semana 3", "revenue_clp": 520000, "transactions": 12, "conversion_percent": 12.0},
+        {"name": "Semana 4", "revenue_clp": 430000, "transactions": 9, "conversion_percent": 12.1}
+      ]
+    },
+    {
+      "name": "2026-Feb",
+      "type": "month",
+      "total_revenue_clp": 2100000,
+      "total_transactions": 46,
+      "subperiods": [
+        {"name": "Semana 5", "revenue_clp": 520000, "transactions": 11, "conversion_percent": 12.5},
+        {"name": "Semana 6", "revenue_clp": 550000, "transactions": 12, "conversion_percent": 13.2},
+        {"name": "Semana 7", "revenue_clp": 530000, "transactions": 11, "conversion_percent": 12.8},
+        {"name": "Semana 8", "revenue_clp": 500000, "transactions": 12, "conversion_percent": 12.4}
+      ]
+    }
+  ]
+}

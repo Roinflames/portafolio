@@ -1,0 +1,42 @@
+{
+  "generated_at": "2026-02-16T14:30:00Z",
+  "currency": "CLP",
+  "subscriptions": [
+    {
+      "customer": "Centro Koru",
+      "plan": "IA Pro 1M",
+      "billing_cycle": "monthly",
+      "price_clp": 129000,
+      "quota_tokens": 1000000,
+      "used_tokens": 740000,
+      "quota_requests": 12000,
+      "used_requests": 9100,
+      "renew_date": "2026-03-02",
+      "status": "active"
+    },
+    {
+      "customer": "Club Veta Sur",
+      "plan": "IA Growth 500K",
+      "billing_cycle": "monthly",
+      "price_clp": 79000,
+      "quota_tokens": 500000,
+      "used_tokens": 552000,
+      "quota_requests": 6000,
+      "used_requests": 6400,
+      "renew_date": "2026-03-07",
+      "status": "active"
+    },
+    {
+      "customer": "Jurídica Mena",
+      "plan": "IA Legal 2M",
+      "billing_cycle": "yearly",
+      "price_clp": 1190000,
+      "quota_tokens": 2000000,
+      "used_tokens": 390000,
+      "quota_requests": 24000,
+      "used_requests": 3700,
+      "renew_date": "2026-12-15",
+      "status": "active"
+    }
+  ]
+}

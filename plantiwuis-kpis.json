@@ -1,0 +1,11 @@
+{
+  "generated_at": "2026-02-17T16:00:00Z",
+  "metrics": [
+    {"label": "Ventas feria", "value": "12", "description": "Transacciones cerradas en feria libre durante los últimos 7 días."},
+    {"label": "Visitas diarias", "value": "650", "description": "Visitantes diarios promedio que pasaron por el stand de Plantiwuis."},
+    {"label": "Revenue CLP", "value": "1.450.000", "description": "Ingresos generados por Plantiwuis en los últimos 7 días."},
+    {"label": "Promociones activas", "value": "2", "description": "Ofertas vigentes en feria y redes sociales."},
+    {"label": "Stock valorado", "value": "620.000", "description": "Valor estimado del inventario actual."},
+    {"label": "Stalls activos", "value": "3", "description": "Puestos de feria o locales operando el canal este fin de semana."}
+  ]
+}
