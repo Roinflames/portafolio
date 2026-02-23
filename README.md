@@ -6,6 +6,24 @@ App unificada para operar portafolio en 4 frentes:
 - `IA Suscripción`: control de uso por plan (cupos, consumo, sobrecupo, MRR).
 - `Comunidad`: salud de comunidad, eventos e incidentes.
 
+## Workspace y versionamiento
+- Infraestructura del workspace en `infra/workspace-infra` (copiada también en `/run/media/rreyes/anaconda/libvirt/workspace-infra`). Contiene módulos y entorno `dev` para Render/Neon con `Makefile` y checklist de import.
+- Checklist de release/operaciones sigue en la sección “Versionamiento y trazabilidad”.
+
+## Versionamiento y trazabilidad
+- Documento base de requisitos: `docs/SRS-IEEE-830.md`.
+- Version actual de release: `1.2.0` (fuente: `package.json`).
+- El versionamiento del `README` se rige por la trazabilidad del SRS (seccion "Trazabilidad de versiones").
+- Todo cambio funcional debe mapearse a requisitos `RF-*` y/o `RNF-*` en el SRS.
+
+### Checklist de release (plantilla)
+Copiar/pegar para cada version:
+
+- [ ] `package.json`: subir `version` (SemVer).
+- [ ] `docs/SRS-IEEE-830.md`: agregar fila en "Trazabilidad de versiones" con fecha `YYYY-MM-DD`, cambios y `RF/RNF` impactados.
+- [ ] `README.md`: actualizar "Version actual de release" para reflejar `package.json`.
+- [ ] Validar despliegue: `GET /health` responde `ok` y la UI persiste en API (`/api/delivery`, `/api/sales`, `/api/ai`, `/api/notes`).
+
 ## Estructura de datos
 - `portfolio-metrics.json` (generado): consolidado de `metrics.json` por repo.
 - `sales-metrics.json`: datos comerciales semilla.
@@ -68,6 +86,22 @@ python3 -m http.server 8799
 ```
 
 Abrir `http://localhost:8799`.
+
+También podés revisar el “Dashboard de puertos” y los proyectos regulados en `http://localhost:3101/docs/port-dashboard.html` una vez que el backend Express (puerto `3101`) esté levantado. Ahí tenés el play/stop automático, el estado `Running/Stopped` y la lista actualizada de proyectos MCP.
+
+### Control rápido de servicios
+Usá `scripts/service-control.sh` para arrancar/parar el backend, front y túnel desde una terminal:
+
+```bash
+./scripts/service-control.sh start api     # backend Express + Neon
+./scripts/service-control.sh start front   # servir assets en 8799
+./scripts/service-control.sh start tunnel  # trycloudflare
+
+./scripts/service-control.sh stop all
+./scripts/service-control.sh status
+```
+
+El script copia los comandos reales que aparecen en el dashboard + utiliza la misma variable `NEON_DATABASE_URL` para el backend; si querés usar otra URL, exportala antes de llamar al script.
 
 ## Backend y persistencia compartida
 

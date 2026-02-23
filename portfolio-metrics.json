@@ -1,20 +1,20 @@
 {
-  "generated_at": "2026-02-16T13:58:02.625Z",
+  "generated_at": "2026-02-23T15:03:08.042Z",
   "schema_version": "1.0.0",
   "summary": {
     "total_projects": 15,
-    "projects_with_progress": 3,
-    "projects_without_progress": 12,
-    "average_progress_known_only": 75,
+    "projects_with_progress": 11,
+    "projects_without_progress": 4,
+    "average_progress_known_only": 60,
     "by_priority": {
       "P1": 11,
       "P2": 2,
       "P3": 2
     },
     "by_status": {
-      "on_track": 2,
-      "blocked": 1,
-      "at_risk": 12
+      "on_track": 6,
+      "at_risk": 8,
+      "blocked": 1
     }
   },
   "projects": [
@@ -29,22 +29,20 @@
       "version": "v0.5.0",
       "last_update": "2026-02-16",
       "source": "docs/SEGUIMIENTO.md",
-      "repo_path": "boxmagic-saas",
-      "service_url": "https://app.boxmagic-saas.test"
+      "repo_path": "clients/boxmagic-saas-v0.5.10"
     },
     {
       "project_id": "2",
       "project_slug": "cabanas-mvp",
       "group": "active",
       "priority": "P1",
-      "progress_percent": 70,
-      "status": "on_track",
-      "blocker": "none",
-      "version": "apps/refugios-mvp v0.9.5",
-      "last_update": "2026-02-16",
-      "source": "apps/refugios-mvp/README.md",
-      "repo_path": "cabanas-mvp",
-      "service_url": "https://refugios.example"
+      "progress_percent": 35,
+      "status": "at_risk",
+      "blocker": "App refugios-mvp funcional local; sin deploy estable",
+      "version": "v0.1.0",
+      "last_update": "2026-02-23",
+      "source": "README.md",
+      "repo_path": "clients/cabanas-mvp-v0.1.0"
     },
     {
       "project_id": "3",
@@ -57,36 +55,33 @@
       "version": "audit-baseline",
       "last_update": "2026-02-16",
       "source": "REPORTE_AUDITORIA_FINAL.md",
-      "repo_path": "pjud-webscrapping",
-      "service_url": "https://pjud-scraper.example"
+      "repo_path": "clients/pjud-webscrapping-v0.0.1"
     },
     {
       "project_id": "4",
       "project_slug": "contavirtual",
       "group": "active",
       "priority": "P1",
-      "progress_percent": null,
-      "status": "at_risk",
-      "blocker": "M\u00e9trica inconsistente entre documentos (70% hist\u00f3rico vs completo v1.0.0)",
+      "progress_percent": 85,
+      "status": "on_track",
+      "blocker": "none",
       "version": "v1.0.0",
-      "last_update": "2026-02-16",
+      "last_update": "2026-02-23",
       "source": "ESTADISTICAS_PROYECTO.md + RESUMEN_DESARROLLO.md",
-      "repo_path": "contavirtual",
-      "service_url": "https://contavirtual.example"
+      "repo_path": "core/contavirtual-v1.0.0"
     },
     {
       "project_id": "5",
       "project_slug": "inventario-web-barcode",
       "group": "active",
       "priority": "P1",
-      "progress_percent": null,
-      "status": "at_risk",
-      "blocker": "No existe porcentaje de avance expl\u00edcito",
+      "progress_percent": 65,
+      "status": "on_track",
+      "blocker": "Deploy estable en Render pendiente; validación real en celular",
       "version": "UI v0.1.13",
-      "last_update": "2026-02-16",
+      "last_update": "2026-02-23",
       "source": "README.md + HANDOFF.md",
-      "repo_path": "inventario-web-barcode",
-      "service_url": "https://barcode.example"
+      "repo_path": "clients/inventario-web-barcode-v0.1.13"
     },
     {
       "project_id": "6",
@@ -95,12 +90,11 @@
       "priority": "P2",
       "progress_percent": null,
       "status": "at_risk",
-      "blocker": "Sin porcentaje de avance expl\u00edcito",
+      "blocker": "Sin porcentaje de avance explícito",
       "version": "mvp-docs",
       "last_update": "2026-02-16",
       "source": "docs/SRS-IEEE-830.md",
-      "repo_path": "fec",
-      "service_url": "https://fec.example"
+      "repo_path": "core/fec"
     },
     {
       "project_id": "7",
@@ -113,36 +107,33 @@
       "version": "roadmap-baseline",
       "last_update": "2026-02-16",
       "source": "README.md",
-      "repo_path": "dieto",
-      "service_url": "https://dieto.example"
+      "repo_path": "core/dieto-v0.1.0"
     },
     {
       "project_id": "8",
       "project_slug": "asistenciadeudores-cl",
       "group": "active",
       "priority": "P1",
-      "progress_percent": null,
+      "progress_percent": 20,
       "status": "at_risk",
-      "blocker": "Solo diagn\u00f3stico inicial, sin % avance",
+      "blocker": "Diagnóstico completo; ejecución de actualizaciones WP pendiente",
       "version": "v0.1.0",
-      "last_update": "2026-02-16",
+      "last_update": "2026-02-23",
       "source": "README.md",
-      "repo_path": "asistenciadeudores-cl",
-      "service_url": "https://asistencia.example"
+      "repo_path": "clients/asistenciadeudores-cl-v0.1.0"
     },
     {
       "project_id": "9",
       "project_slug": "tempo-generador-pdf",
       "group": "active",
       "priority": "P1",
-      "progress_percent": null,
-      "status": "at_risk",
-      "blocker": "Existen prioridades por requisito, pero no % global",
+      "progress_percent": 60,
+      "status": "on_track",
+      "blocker": "none",
       "version": "agenda-ieee830",
-      "last_update": "2026-02-16",
+      "last_update": "2026-02-23",
       "source": "TODO/IEEE830_agenda.md",
-      "repo_path": "tempo-generador-pdf",
-      "service_url": "https://tempo.example"
+      "repo_path": "clients/tempo-generador-pdf-v0.1.0"
     },
     {
       "project_id": "10",
@@ -151,68 +142,63 @@
       "priority": "P3",
       "progress_percent": null,
       "status": "at_risk",
-      "blocker": "No existe porcentaje de avance expl\u00edcito",
+      "blocker": "No existe porcentaje de avance explícito",
       "version": "release-tracked",
       "last_update": "2026-02-16",
       "source": "CHANGELOG.md",
-      "repo_path": "agentcockpit",
-      "service_url": "https://agentcockpit.example"
+      "repo_path": "labs/agentcockpit"
     },
     {
       "project_id": "11",
       "project_slug": "deploy-notifier",
       "group": "active",
       "priority": "P1",
-      "progress_percent": null,
-      "status": "at_risk",
-      "blocker": "Sin % avance consolidado",
+      "progress_percent": 70,
+      "status": "on_track",
+      "blocker": "none",
       "version": "API v0.1.0",
-      "last_update": "2026-02-16",
+      "last_update": "2026-02-23",
       "source": "README.md",
-      "repo_path": "deploy-notifier",
-      "service_url": "https://deploy-notifier.example"
+      "repo_path": "labs/deploy-notifier-v0.1.0"
     },
     {
       "project_id": "12",
       "project_slug": "pokemon-web",
       "group": "active",
       "priority": "P1",
-      "progress_percent": null,
+      "progress_percent": 45,
       "status": "at_risk",
-      "blocker": "Sin m\u00e9tricas visibles de avance",
-      "version": "baseline",
-      "last_update": "2026-02-16",
+      "blocker": "Sin deploy estable; requiere DATABASE_URL configurado",
+      "version": "v0.1.0",
+      "last_update": "2026-02-23",
       "source": "repo-scan",
-      "repo_path": "pokemon-web",
-      "service_url": "https://pokemon-web.example"
+      "repo_path": "labs/pokemon-web-v0.1.0"
     },
     {
       "project_id": "13",
       "project_slug": "jorellana",
       "group": "active",
       "priority": "P1",
-      "progress_percent": null,
+      "progress_percent": 50,
       "status": "at_risk",
-      "blocker": "Existe prototipo; MVP desplegable multiusuario pendiente",
-      "version": "mvp-setup-plan",
-      "last_update": "2026-02-16",
+      "blocker": "TODO largo sin resolver: breadcrumb, navegación, validaciones internas",
+      "version": "v0.2.0",
+      "last_update": "2026-02-23",
       "source": "PLAN_MVP_DOCKER_CLOUDFLARE.md",
-      "repo_path": "jorellana",
-      "service_url": "https://jorellana.example"
+      "repo_path": "labs/jorellana-v0.2.0"
     },
     {
       "project_id": "14",
       "project_slug": "passbolt-repo",
       "group": "active",
       "priority": "P1",
-      "progress_percent": null,
-      "status": "at_risk",
-      "blocker": "No existe porcentaje de avance expl\u00edcito",
+      "progress_percent": 75,
+      "status": "on_track",
+      "blocker": "none",
       "version": "deploy-neon-guide",
-      "last_update": "2026-02-16",
+      "last_update": "2026-02-23",
       "source": "DEPLOY_RENDER_NEON.md",
-      "repo_path": "passbolt-repo",
-      "service_url": "https://passbolt.example"
+      "repo_path": "core/passbolt-repo-v0.1.0"
     },
     {
       "project_id": "15",
@@ -221,12 +207,11 @@
       "priority": "P3",
       "progress_percent": null,
       "status": "at_risk",
-      "blocker": "Sin m\u00e9tricas visibles de avance",
+      "blocker": "Sin métricas visibles de avance",
       "version": "baseline",
       "last_update": "2026-02-16",
       "source": "repo-scan",
-      "repo_path": "context-first-arch",
-      "service_url": "https://context-first-arch.example"
+      "repo_path": "labs/context-first-arch"
     }
   ]
 }
